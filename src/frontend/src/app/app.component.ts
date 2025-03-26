@@ -1,13 +1,13 @@
 import { Component } from '@angular/core';
-import { RouterOutlet } from '@angular/router';
 import { SubjectsComponent } from './subjects/subjects.component';
 import { HttpClientModule } from '@angular/common/http';
 
 @Component({
   selector: 'app-root',
-  imports: [SubjectsComponent, HttpClientModule],
+  standalone: true, 
+  imports: [SubjectsComponent, HttpClientModule],  
   templateUrl: './app.component.html',
-  styleUrl: './app.component.less' 
+  styleUrls: ['./app.component.less'], 
 })
 export class AppComponent {
   title = 'frontend';

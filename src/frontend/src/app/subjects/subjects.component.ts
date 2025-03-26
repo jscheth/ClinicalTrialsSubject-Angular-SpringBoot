@@ -1,25 +1,21 @@
-import { Component } from '@angular/core';
-import { SubjectService } from './service/subject.service';
+// src/app/subjects/subjects.component.ts
+import { Component, Input } from '@angular/core';
 import { Subject } from './model/subject.model';
-import { CommonModule } from '@angular/common';
-import { MatTableModule } from '@angular/material/table';
+import { SubjectService } from './service/subject.service';
 
 @Component({
   selector: 'app-subjects',
-  imports: [CommonModule, MatTableModule],
   templateUrl: './subjects.component.html',
-  styleUrl: './subjects.component.less'
+  styleUrls: ['./subjects.component.less']
 })
 export class SubjectsComponent {
-  subjects: Subject[] = [];
-  displayedColumns: string[] = ['id', 'firstName', 'lastName']
+  @Input() subjects: Subject[] = [];
 
   constructor(private subjectService: SubjectService) {}
 
-  ngOnInit(): void {
-    this.subjectService.getSubjects().subscribe((data) => {
-      this.subjects = data;
-    });
-  }
-
+  // ngOnInit(): void {
+  //   this.subjectService.getSubjects().subscribe((data) => {
+  //     this.subjects = data;
+  //   });
+  // }
 }

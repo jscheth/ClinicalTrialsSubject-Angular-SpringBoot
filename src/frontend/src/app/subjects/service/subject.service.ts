@@ -7,11 +7,11 @@ import { Subject } from '../model/subject.model';
   providedIn: 'root',
 })
 export class SubjectService {
-  private apiUrl = 'http://localhost:8080/api/subjects';
+//   private apiUrl = 'http://localhost:8080/api/subjects';
 
-  constructor(private http: HttpClient) {}
+//   constructor(private http: HttpClient) {}
 
-  getSubjects(): Observable<Subject[]> {
-    return this.http.get<Subject[]>(this.apiUrl);
-  }
+//   getSubjects(): Observable<Subject[]> {
+//     return this.http.get<Subject[]>(this.apiUrl);
+//   }
 }
