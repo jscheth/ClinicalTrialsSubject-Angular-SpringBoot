@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @RestController
 @RequestMapping("/api/subjects")
@@ -21,7 +22,7 @@ public class SubjectController {
     }
 
     @GetMapping("/{id}")
-    public Optional<Subject> getSubjectById(@PathVariable String id) {
+    public Optional<Subject> getSubjectById(@PathVariable UUID id) {
         return subjectService.getSubjectById(id);
     }
 
@@ -31,12 +32,12 @@ public class SubjectController {
     }
 
     @PutMapping("/{id}")
-    public Subject updateSubject(@PathVariable String id, @RequestBody Subject subject) {
+    public Subject updateSubject(@PathVariable UUID id, @RequestBody Subject subject) {
         return subjectService.updateSubject(id, subject);
     }
 
     @DeleteMapping("/{id}")
-    public void deleteSubject(@PathVariable String id) {
+    public void deleteSubject(@PathVariable UUID id) {
         subjectService.deleteSubject(id);
     }
 }

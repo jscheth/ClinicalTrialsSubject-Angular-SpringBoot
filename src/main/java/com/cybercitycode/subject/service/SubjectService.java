@@ -7,6 +7,7 @@ import org.springframework.stereotype.Service;
 
 import java.util.List;
 import java.util.Optional;
+import java.util.UUID;
 
 @Service
 public class SubjectService {
@@ -18,7 +19,7 @@ public class SubjectService {
         return subjectRepository.findAll();
     }
 
-    public Optional<Subject> getSubjectById(String id) {
+    public Optional<Subject> getSubjectById(UUID id) {
         return subjectRepository.findById(id);
     }
 
@@ -26,7 +27,7 @@ public class SubjectService {
         return subjectRepository.save(subject);
     }
 
-    public Subject updateSubject(String id, Subject updatedSubject) {
+    public Subject updateSubject(UUID id, Subject updatedSubject) {
         return subjectRepository.findById(id)
                 .map(subject -> {
                     subject.setFirstName(updatedSubject.getFirstName());
@@ -46,7 +47,7 @@ public class SubjectService {
                 .orElseThrow(() -> new RuntimeException("Subject not found with id: " + id));
     }
 
-    public void deleteSubject(String id) {
+    public void deleteSubject(UUID id) {
         subjectRepository.deleteById(id);
     }
 }
