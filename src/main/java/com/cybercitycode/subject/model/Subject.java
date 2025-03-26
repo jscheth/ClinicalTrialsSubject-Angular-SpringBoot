@@ -1,9 +1,12 @@
 package com.cybercitycode.subject.model;
 
+import org.springframework.data.mongodb.core.mapping.Document;
+
 import java.util.UUID;
 
+@Document(collection = "Subject")
 public class Subject {
-    private UUID id;
+    private String id;
     private String firstName;
     private String lastName;
     private String email;
@@ -17,7 +20,7 @@ public class Subject {
     private String country;
     private boolean active;
 
-    public Subject(UUID id, String firstName, String lastName, String email, String phone, String gender,
+    public Subject(String id, String firstName, String lastName, String email, String phone, String gender,
                    String birthDate, String address, String city, String state, String zip, String country, boolean active) {
         this.id = id;
         this.firstName = firstName;
@@ -34,11 +37,11 @@ public class Subject {
         this.active = active;
     }
 
-    public UUID getId() {
+    public String getId() {
         return id;
     }
 
-    public void setId(UUID id) {
+    public void setId(String id) {
         this.id = id;
     }
 
